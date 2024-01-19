@@ -13,21 +13,19 @@ int main() {
     cout << "Simulating " << rolls << " rolls..." << endl;
     int * array = nullptr;
 
-    array = new int[rolls];
+    array = new int[11];
 
     srand(time(NULL));
 
     for (int i = 0; i < rolls; i++){
-        array[i] = (rand() % 12) + 2;
+        int roll1 = (rand() % 6) + 1;
+        int roll2 = (rand() % 6) + 1;
+        int total = roll1+roll2;
+        array[total-2]++;
     }
-    for (int j = 0; j < 11; j++){
-        int count = 0;
-        for(int k = 0; k < rolls; k++){
-            if((j+2) == array[k]){
-            count++;
-            }
-        }
-        cout << (j+2) << " was rolled " << count << " times" << endl;
+
+    for(int i = 0; i < 11; i++){
+        cout << i+2 << " was rolled " << array[i] << " times" << endl;
     }
     
 }
